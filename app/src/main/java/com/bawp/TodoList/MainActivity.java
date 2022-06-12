@@ -7,11 +7,13 @@ import com.bawp.TodoList.Model.Task;
 import com.bawp.TodoList.Model.TaskViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
@@ -21,6 +23,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private TaskViewModel taskViewModel;
+    private static final String TAG = "ITEM";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         taskViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this.getApplication()).create(TaskViewModel.class);
+
+        taskViewModel.getAllTasks().observe(this, tasks -> {
+            for (Task task : tasks) {
+                Log.d(TAG, "onCreate: " + task.getTaskId());
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
