@@ -37,7 +37,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String formatted = Utils.formatDate(task.getDueDate());
 
         holder.task.setText(task.getTask());
-        holder.todayChip.setText(task.getDueDate().toString());
+        holder.todayChip.setText(formatted);
     }
 
     @Override
