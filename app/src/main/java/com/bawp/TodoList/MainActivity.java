@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         taskViewModel.getAllTasks().observe(this, tasks -> {
             for (Task task : tasks) {
-                Log.d(TAG, "onCreate: " + task.getTaskId());
+                Log.d(TAG, "on create: " + task.getTaskId());
             }
         });
 
