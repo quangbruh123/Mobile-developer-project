@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
@@ -21,7 +22,7 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     private TaskViewModel taskViewModel;
-
+    private static final String TAG = "ITEM";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +30,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         taskViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this.getApplication()).create(TaskViewModel.class);
+        taskViewModel.getAllTasks().observe(this, tasks -> {
+            for (Task task : tasks) {
+                Log.d(TAG, "on create: " + task.getTask());
+            }
+        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Task task = new Task("Todo", Priority.HIGH, Calendar.getInstance().getTime(), Calendar.getInstance().getTime(), false);
             TaskViewModel.inset(task);
         });
+
+
     }
 
     @Override
