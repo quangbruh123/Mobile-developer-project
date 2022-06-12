@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.bawp.TodoList.Model.Priority;
 import com.bawp.TodoList.Model.Task;
 import com.bawp.TodoList.Model.TaskViewModel;
+import com.bawp.TodoList.adapter.RecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
@@ -12,6 +13,8 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.View;
@@ -24,6 +27,8 @@ import java.util.Calendar;
 public class MainActivity extends AppCompatActivity {
     private TaskViewModel taskViewModel;
     private static final String TAG = "ITEM";
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         taskViewModel = new ViewModelProvider.AndroidViewModelFactory(MainActivity.this.getApplication()).create(TaskViewModel.class);
 
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         taskViewModel.getAllTasks().observe(this, tasks -> {
-            for (Task task : tasks) {
-                Log.d(TAG, "on create: " + task.getTaskId());
-            }
+            recyclerViewAdapter = new RecyclerViewAdapter(tasks);
+            recyclerView.setAdapter(recyclerViewAdapter);
         });
 
         FloatingActionButton fab = findViewById(R.id.fab);

@@ -17,18 +17,18 @@ public class Task {
 
     public Priority priority;
 
-    @ColumnInfo(name = "due_time")
-    public Date dueTime;
+    @ColumnInfo(name = "due_date")
+    public Date dueDate;
 
     @ColumnInfo(name = "created_at")
     public Date dateCreate;
 
     public boolean isDone;
 
-    public Task (String task, Priority priority, Date dueTime, Date dateCreate, boolean isDone) {
+    public Task (String task, Priority priority, Date dueDate, Date dateCreate, boolean isDone) {
         this.task = task;
         this.priority = priority;
-        this.dueTime = dueTime;
+        this.dueDate = dueDate;
         this.dateCreate = dateCreate;
         this.isDone = isDone;
     }
@@ -45,8 +45,8 @@ public class Task {
         return priority;
     }
 
-    public Date getDueTime() {
-        return dueTime;
+    public Date getDueDate() {
+        return dueDate;
     }
 
     public Date getDateCreate() {
@@ -69,8 +69,8 @@ public class Task {
         this.priority = priority;
     }
 
-    public void setDueTime(Date dueTime) {
-        this.dueTime = dueTime;
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
     }
 
     public void setDateCreate(Date dateCreate) {
@@ -87,7 +87,7 @@ public class Task {
                 "taskId: " + taskId +
                 ", task: '" + task+ '\'' +
                 ", priority: " + priority +
-                ", due date: " + dueTime +
+                ", due date: " + dueDate +
                 ", date created: " + dateCreate +
                 ", state: " + (isDone == true ? "Done" : "Not done");
     }

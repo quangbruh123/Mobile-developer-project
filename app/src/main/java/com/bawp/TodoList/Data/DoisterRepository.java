@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.bawp.TodoList.Model.Task;
-import com.bawp.TodoList.Utils.TaskRoomDatabase;
+import com.bawp.TodoList.util.TaskRoomDatabase;
 
 import java.util.List;
 

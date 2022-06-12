@@ -1,4 +1,4 @@
-package com.bawp.TodoList.Utils;
+package com.bawp.TodoList.util;
 
 import android.content.Context;
 
@@ -6,14 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.bawp.TodoList.Data.TaskDao;
 import com.bawp.TodoList.Model.Task;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

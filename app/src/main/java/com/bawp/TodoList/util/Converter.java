@@ -1,4 +1,4 @@
-package com.bawp.TodoList.Utils;
+package com.bawp.TodoList.util;
 
 import androidx.room.TypeConverter;
 
