@@ -13,7 +13,7 @@ public class Task {
     @PrimaryKey(autoGenerate = true)
     public long taskId;
 
-    public String taskName;
+    public String task;
 
     public Priority priority;
 
@@ -25,8 +25,8 @@ public class Task {
 
     public boolean isDone;
 
-    public Task (String name, Priority priority, Date dueTime, Date dateCreate, boolean isDone) {
-        this.taskName = name;
+    public Task (String task, Priority priority, Date dueTime, Date dateCreate, boolean isDone) {
+        this.task = task;
         this.priority = priority;
         this.dueTime = dueTime;
         this.dateCreate = dateCreate;
@@ -37,8 +37,8 @@ public class Task {
         return taskId;
     }
 
-    public String getTaskName() {
-        return taskName;
+    public String getTask() {
+        return task;
     }
 
     public Priority getPriority() {
@@ -62,7 +62,7 @@ public class Task {
     }
 
     public void setTaskName(String taskName) {
-        this.taskName = taskName;
+        this.task = taskName;
     }
 
     public void setPriority(Priority priority) {
@@ -85,7 +85,7 @@ public class Task {
     public String toString() {
         return "Task {" +
                 "taskId: " + taskId +
-                ", task name: '" + taskName + "\'" +
+                ", task: '" + task+ '\'' +
                 ", priority: " + priority +
                 ", due date: " + dueTime +
                 ", date created: " + dateCreate +

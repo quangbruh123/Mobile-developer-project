@@ -23,7 +23,7 @@ public interface TaskDao {
     void deleteAll();
 
     @Query("SELECT * FROM TASK_TABLE")
-    LiveData<List<Task>> getTask();
+    LiveData<List<Task>> getTasks();
 
     @Query("SELECT * FROM TASK_TABLE WHERE Task_Id == :id")
     LiveData<Task> get(long id);
