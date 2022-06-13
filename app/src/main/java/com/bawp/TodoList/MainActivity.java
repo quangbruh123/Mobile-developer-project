@@ -3,6 +3,8 @@ package com.bawp.TodoList;
 import android.os.Bundle;
 
 import com.bawp.TodoList.Model.Priority;
+import com.bawp.TodoList.Model.SharedViewModel;
+import com.bawp.TodoList.Model.SharedViewModel;
 import com.bawp.TodoList.Model.Task;
 import com.bawp.TodoList.Model.TaskViewModel;
 import com.bawp.TodoList.adapter.OnTodoClickListener;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     private int counter;
     BottomSheetFragment bottomSheetFragment;
 
+    private SharedViewModel sharedViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         counter = 0;
+
 
         bottomSheetFragment = new BottomSheetFragment();
         ConstraintLayout constraintLayout = findViewById(R.id.bottomSheet);
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
         taskViewModel = new ViewModelProvider.AndroidViewModelFactory(
                 MainActivity.this.getApplication())
                 .create(TaskViewModel.class);
+
+        sharedViewModel = new ViewModelProvider(this)
+                .get(SharedViewModel.class);
 
         taskViewModel.getAllTasks().observe(this, tasks -> {
             recyclerViewAdapter = new RecyclerViewAdapter(tasks, this);
@@ -96,8 +103,11 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     }
 
     @Override
-    public void onTodoClick(int adapterPosition, Task task) {
-        Log.d("Click", "onTodoClick: " + task.getTask());
+    public void onTodoClick(Task task) {
+        sharedViewModel.selectItem(task);
+        //Log.d("Click", "onRadioButton: " + task.getTask());
+        sharedViewModel.setIsEdit(true);
+        showBottomSheetDialog();
     }
 
     @Override
