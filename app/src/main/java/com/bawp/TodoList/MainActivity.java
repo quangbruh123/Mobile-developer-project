@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.bawp.TodoList.Model.Priority;
 import com.bawp.TodoList.Model.Task;
 import com.bawp.TodoList.Model.TaskViewModel;
+import com.bawp.TodoList.adapter.OnTodoClickListener;
 import com.bawp.TodoList.adapter.RecyclerViewAdapter;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +27,7 @@ import android.view.MenuItem;
 
 import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnTodoClickListener {
     private TaskViewModel taskViewModel;
     private static final String TAG = "ITEM";
     private RecyclerView recyclerView;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 .create(TaskViewModel.class);
 
         taskViewModel.getAllTasks().observe(this, tasks -> {
-            recyclerViewAdapter = new RecyclerViewAdapter(tasks);
+            recyclerViewAdapter = new RecyclerViewAdapter(tasks, this);
             recyclerView.setAdapter(recyclerViewAdapter);
         });
 
@@ -92,5 +93,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTodoClick(int adapterPosition, Task task) {
+        Log.d("Click", "onTodoClick: " + task.getTask());
     }
 }
