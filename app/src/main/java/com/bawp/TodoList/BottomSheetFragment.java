@@ -2,6 +2,7 @@ package com.bawp.TodoList;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,10 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
-public class BottomSheetFragment extends BottomSheetDialogFragment {
+public class BottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener {
     private EditText enterTodo;
     private ImageButton calenderButton;
     private ImageButton priorityButton;
@@ -34,6 +36,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     private int selectedButtonId;
     private CalendarView calendarView;
     private Group calenderGroup;
+    Calendar calendar = Calendar.getInstance();
+
+    private int[] time;
+
+    private Date dueDate;
 
     public BottomSheetFragment() {
 
@@ -55,8 +62,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         clockButton = view.findViewById(R.id.time_button);
 
         Chip todayChip = view.findViewById(R.id.today_chip);
+        todayChip.setOnClickListener(this);
         Chip tomorrowChip = view.findViewById(R.id.tomorrow_chip);
+        tomorrowChip.setOnClickListener(this);
         Chip nextweekChip = view.findViewById(R.id.next_week_chip);
+        nextweekChip.setOnClickListener(this);
 
         return view;
     }
@@ -69,13 +79,52 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                     calendarView.getVisibility() == View.GONE ? View.VISIBLE : View.GONE
             );
         });
+
+        calendarView.setOnDateChangeListener((calendarView, year, month, dayOfMonth) -> {
+            calendar.clear();
+            calendar.set(year, month, dayOfMonth);
+            dueDate = calendar.getTime();
+
+        });
+
         saveButton.setOnClickListener(view1 -> {
             String task = enterTodo.getText().toString().trim();
-            if (!TextUtils.isEmpty(task)) {
-                Task newtask = new Task(task, Priority.HIGH, Calendar.getInstance().getTime(),
+
+            if (!TextUtils.isEmpty(task) && dueDate != null) {
+                Task newtask = new Task(task, Priority.HIGH, dueDate,
                         Calendar.getInstance().getTime(), false);
                 TaskViewModel.insert(newtask);
             }
         });
+    }
+
+    private boolean CheckEnoughTime() {
+        for (int i = 0; i < time.length; i++) {
+            if (time == null) {
+                Log.d("Return", "return");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == R.id.today_chip) {
+            calendar.add(Calendar.DAY_OF_YEAR, 0);
+            dueDate = calendar.getTime();
+            Log.d("TIME", "onClick" + dueDate.toString());
+        }
+        else if (id == R.id.tomorrow_chip) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+            dueDate = calendar.getTime();
+            Log.d("TIME", "onClick" + dueDate.toString());
+        }
+        else if (id == R.id.next_week_chip) {
+            calendar.add(Calendar.DAY_OF_YEAR, 7);
+            dueDate = calendar.getTime();
+            Log.d("TIME", "onClick" + dueDate.toString());
+        }
     }
 }
