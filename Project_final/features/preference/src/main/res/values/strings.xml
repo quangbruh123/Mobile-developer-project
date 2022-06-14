@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_title_about" translatable="false">About</string>
+    <string name="preference_title_tracker" translatable="false">Task Tracker</string>
+    <string name="about_description" translatable="false">Application name: TodoList, Version 1.0.0\nThis is a UIT students\' mobile application project</string>
+    <string name="preference_title_app_theme" translatable="false">App theme</string>
+    <string name="preference_light_theme" translatable="false">Light theme</string>
+    <string name="preference_dark_theme" translatable="false">Dark theme</string>
+    <string name="preference_system_default_theme" translatable="false">System default</string>
+    <string name="preference_title_features" translatable="false">Features</string>
+    <string name="preference_title_settings" translatable="false">Settings</string>
+
+</resources>
