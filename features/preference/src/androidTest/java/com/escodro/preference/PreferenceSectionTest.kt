@@ -25,11 +25,9 @@ internal class PreferenceSectionTest {
         val itemTracker = context.getString(R.string.preference_title_tracker)
         val itemTheme = context.getString(R.string.preference_title_app_theme)
         val itemAbout = context.getString(R.string.preference_title_about)
-        val itemVersion = context.getString(R.string.preference_title_version)
 
         composeTestRule.onNodeWithText(text = itemTracker, useUnmergedTree = true).assertExists()
         composeTestRule.onNodeWithText(text = itemAbout, useUnmergedTree = true).assertExists()
-        composeTestRule.onNodeWithText(text = itemVersion, useUnmergedTree = true).assertExists()
         composeTestRule.onNodeWithText(text = itemTheme, useUnmergedTree = true).assertExists()
     }
 
