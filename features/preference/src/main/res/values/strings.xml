@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="preference_title_about">About</string>
+    <string name="preference_title_version">Version</string>
+    <string name="preference_title_tracker">Task Tracker</string>
+
+    <string name="about_description">Test </string>
+    <string name="about_button_project">Visit project on GitHub</string>
+    <string name="about_cd_github" translatable="false">GitHub</string>
+    <string name="preference_title_app_theme">App theme</string>
+    <string name="preference_light_theme">Light theme</string>
+    <string name="preference_dark_theme">Dark theme</string>
+    <string name="preference_system_default_theme">System default</string>
+    <string name="preference_title_features">Features</string>
+    <string name="preference_title_settings">Settings</string>
+
+</resources>
