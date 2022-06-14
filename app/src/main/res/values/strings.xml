@@ -28,4 +28,5 @@
     <string name="image_description">button image</string>
     <string name="about_text">TodoList - by group ...</string>
     <string name="add_todos">Add a Todo...</string>
+    <string name="theme">Light</string>
 </resources>

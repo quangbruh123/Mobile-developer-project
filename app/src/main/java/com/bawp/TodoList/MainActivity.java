@@ -1,5 +1,7 @@
 package com.bawp.TodoList;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bawp.TodoList.Model.Priority;
@@ -15,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     private static final String TAG = "ITEM";
     private RecyclerView recyclerView;
     private RecyclerViewAdapter recyclerViewAdapter;
-    private int counter;
+    private static boolean isSet = false;
+
     BottomSheetFragment bottomSheetFragment;
 
     private SharedViewModel sharedViewModel;
@@ -43,9 +47,14 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (isSet == false) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            isSet = true;
+        }
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        counter = 0;
 
 
         bottomSheetFragment = new BottomSheetFragment();
@@ -96,7 +105,19 @@ public class MainActivity extends AppCompatActivity implements OnTodoClickListen
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
             return true;
+        }
+
+        if (id == R.id.darkmode) {
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+            else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+
         }
 
         return super.onOptionsItemSelected(item);
