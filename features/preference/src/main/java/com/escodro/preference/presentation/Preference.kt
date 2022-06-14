@@ -84,7 +84,6 @@ internal fun PreferenceContent(
         PreferenceTitle(title = stringResource(id = R.string.preference_title_settings))
         ThemeItem(currentTheme = theme, onThemeUpdate = onThemeUpdate)
         AboutItem(onAboutClick)
-        VersionItem()
     }
 }
 
@@ -111,31 +110,6 @@ private fun TrackerItem(onTrackerClick: () -> Unit) {
         title = stringResource(id = R.string.preference_title_tracker),
         onItemClick = onTrackerClick
     )
-}
-
-@Composable
-@Suppress("MagicNumber")
-private fun VersionItem() {
-    val title = stringResource(id = R.string.preference_title_version)
-    val context = LocalContext.current
-    val version = context.getVersionName()
-    var numberOfClicks by remember { mutableStateOf(0) }
-    val onClick = {
-        if (++numberOfClicks == 7) {
-            context.openUrl(EasterEggUrl)
-        }
-    }
-
-    LaunchedEffect(Unit) {
-        snapshotFlow { numberOfClicks }
-            .filter { it > 0 }
-            .collectLatest {
-                delay(1_000)
-                numberOfClicks = 0
-            }
-    }
-
-    PreferenceItem(title = title, description = version, onItemClick = onClick)
 }
 
 @Composable
@@ -177,8 +151,6 @@ private fun Separator() {
             .background(MaterialTheme.colors.onSecondary.copy(alpha = 0.7F))
     )
 }
-
-private const val EasterEggUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 
 @Suppress("UndocumentedPublicFunction")
 @Preview
