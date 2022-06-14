@@ -13,20 +13,11 @@ import com.escodro.domain.repository.TaskRepository
 import mu.KLogging
 import java.util.Calendar
 
-/**
- * Schedules the next alarm entry or the missing ones in a repeating alarm.
- */
 class ScheduleNextAlarm(
     private val taskRepository: TaskRepository,
     private val alarmInteractor: AlarmInteractor,
     private val calendarProvider: CalendarProvider
 ) {
-
-    /**
-     * Schedules the next alarm.
-     *
-     * @param task task to be rescheduled
-     */
     suspend operator fun invoke(task: Task) {
         require(task.isRepeating) { "Task is not repeating" }
         require(task.dueDate != null) { "Task has no due date" }

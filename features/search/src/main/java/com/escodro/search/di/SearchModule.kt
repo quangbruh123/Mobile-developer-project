@@ -5,9 +5,6 @@ import com.escodro.search.presentation.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-/**
- * Search dependency injection module.
- */
 val searchModule = module {
 
     // Presentation

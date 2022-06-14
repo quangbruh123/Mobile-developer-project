@@ -3,7 +3,7 @@ package com.escodro.preference
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.preference.model.AppThemeOptions
 import com.escodro.preference.presentation.PreferenceContent
 import org.junit.Rule
@@ -35,7 +35,7 @@ internal class PreferenceSectionTest {
 
     private fun loadView() {
         composeTestRule.setContent {
-            AlkaaTheme {
+            TodoListTheme {
                 PreferenceContent(
                     onAboutClick = { },
                     onTrackerClick = { },

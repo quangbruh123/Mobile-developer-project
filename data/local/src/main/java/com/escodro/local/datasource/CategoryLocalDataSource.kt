@@ -7,9 +7,6 @@ import com.escodro.repository.model.Category
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/**
- * Local implementation of [CategoryDataSource].
- */
 internal class CategoryLocalDataSource(
     daoProvider: DaoProvider,
     private val categoryMapper: CategoryMapper

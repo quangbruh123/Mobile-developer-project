@@ -45,7 +45,7 @@ import com.escodro.category.R
 import com.escodro.categoryapi.model.Category
 import com.escodro.categoryapi.presentation.CategoryListViewModel
 import com.escodro.categoryapi.presentation.CategoryState
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AddFloatingButton
 import com.escodro.designsystem.components.AlkaaLoadingContent
 import com.escodro.designsystem.components.DefaultIconTextContent
@@ -53,12 +53,6 @@ import org.koin.androidx.compose.getViewModel
 import kotlin.math.max
 import kotlin.math.roundToInt
 
-/**
- * Alkaa Category List Section.
- *
- * @param modifier the decorator
- * @param onShowBottomSheet function to be called when the bottom sheet is shown
- */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun CategoryListSection(
@@ -201,7 +195,7 @@ private fun CategoryListEmpty() {
 @Preview
 @Composable
 fun AboutPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         CategoryItem(
             category = Category(name = "Movies", color = android.graphics.Color.RED),
             onItemClick = { }

@@ -37,19 +37,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaLoadingContent
 import com.escodro.designsystem.components.DefaultIconTextContent
 import com.escodro.search.R
 import com.escodro.search.model.TaskSearchItem
 import org.koin.androidx.compose.getViewModel
 
-/**
- * Alkaa Search Section.
- *
- * @param modifier the decorator
- * @param onItemClick action to be called when the item is clicked
- */
 @Composable
 fun SearchSection(modifier: Modifier = Modifier, onItemClick: (Long) -> Unit) {
     SearchLoader(modifier = modifier, onItemClick = onItemClick)
@@ -200,7 +194,7 @@ fun SearchLoadedListPreview() {
 
     val taskList = listOf(task1, task2)
 
-    AlkaaTheme {
+    TodoListTheme {
         SearchScaffold(
             modifier = Modifier,
             viewState = SearchViewState.Loaded(taskList),
@@ -215,7 +209,7 @@ fun SearchLoadedListPreview() {
 @Preview
 @Composable
 fun SearchEmptyListPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         SearchScaffold(
             modifier = Modifier,
             viewState = SearchViewState.Empty,

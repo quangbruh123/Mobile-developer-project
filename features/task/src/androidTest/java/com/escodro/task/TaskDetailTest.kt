@@ -5,7 +5,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
 import com.escodro.categoryapi.presentation.CategoryState
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.task.model.Task
 import com.escodro.task.presentation.detail.TaskDetailActions
 import com.escodro.task.presentation.detail.main.TaskDetailRouter
@@ -56,7 +56,7 @@ internal class TaskDetailTest {
 
     private fun loadTaskDetail(state: TaskDetailState) {
         composeTestRule.setContent {
-            AlkaaTheme {
+            TodoListTheme {
                 TaskDetailRouter(
                     detailViewState = state,
                     categoryViewState = CategoryState.Loaded(listOf()),

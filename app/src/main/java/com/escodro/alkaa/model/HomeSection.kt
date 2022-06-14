@@ -9,12 +9,6 @@ import androidx.compose.material.icons.outlined.Search
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.escodro.alkaa.R
 
-/**
- * Enum to represent the sections available in the bottom app bar.
- *
- * @property title title to be shown in top app bar.
- * @property icon icon to be shown in the bottom app bar
- */
 enum class HomeSection(
     @StringRes val title: Int,
     val icon: ImageVector

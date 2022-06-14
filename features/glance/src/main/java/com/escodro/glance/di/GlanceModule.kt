@@ -6,9 +6,6 @@ import com.escodro.glance.mapper.TaskMapper
 import com.escodro.glance.presentation.TaskListGlanceViewModel
 import org.koin.dsl.module
 
-/**
- * Glance dependency injection module.
- */
 val glanceModule = module {
 
     // Presentation

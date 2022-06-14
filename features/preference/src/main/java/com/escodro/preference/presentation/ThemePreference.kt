@@ -25,7 +25,7 @@ internal fun AppThemeDialog(
 ) {
     if (isDialogOpen) {
         AlertDialog(
-            onDismissRequest = { /* Does not close */ },
+            onDismissRequest = { },
             title = { Text(text = stringResource(id = R.string.preference_title_app_theme)) },
             text = {
                 Column {
@@ -60,8 +60,8 @@ internal fun AppThemeDialog(
                     }
                 }
             },
-            confirmButton = { /* Shows nothing */ },
-            dismissButton = { /* Shows nothing */ }
+            confirmButton = { },
+            dismissButton = { }
         )
     }
 }

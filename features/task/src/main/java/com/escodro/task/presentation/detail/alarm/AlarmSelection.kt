@@ -37,7 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.escodro.core.extension.format
 import com.escodro.core.view.DateTimePickerDialog
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaDialog
 import com.escodro.designsystem.components.DialogArguments
 import com.escodro.task.R
@@ -248,7 +248,7 @@ private fun AlarmPermissionDialog(
 @Composable
 fun AlarmSetSelectionPreview() {
     Surface(color = MaterialTheme.colors.background) {
-        AlkaaTheme {
+        TodoListTheme {
             AlarmSelection(
                 Calendar.getInstance(),
                 AlarmInterval.WEEKLY,
@@ -265,7 +265,7 @@ fun AlarmSetSelectionPreview() {
 @Composable
 fun AlarmNotSetSelectionPreview() {
     Surface(color = MaterialTheme.colors.background) {
-        AlkaaTheme {
+        TodoListTheme {
             AlarmSelection(
                 null,
                 AlarmInterval.NEVER,
@@ -281,7 +281,7 @@ fun AlarmNotSetSelectionPreview() {
 @Preview
 @Composable
 fun AlarmIntervalDialogPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         AlarmIntervalDialog(
             showDialog = remember { mutableStateOf(true) },
             onIntervalSelect = {}

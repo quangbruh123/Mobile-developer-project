@@ -13,10 +13,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-/**
- * ViewModel responsible to handle the interaction between the presentation and business logic from
- * Task Section.
- */
 internal class TaskListViewModel(
     private val loadAllTasksUseCase: LoadUncompletedTasks,
     private val updateTaskStatusUseCase: UpdateTaskStatus,

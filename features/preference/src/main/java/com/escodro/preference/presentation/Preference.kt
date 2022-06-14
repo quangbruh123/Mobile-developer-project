@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.escodro.core.extension.getVersionName
 import com.escodro.core.extension.openUrl
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.preference.R
 import com.escodro.preference.model.AppThemeOptions
 import kotlinx.coroutines.delay
@@ -36,13 +36,6 @@ import kotlinx.coroutines.flow.filter
 import org.koin.androidx.compose.getViewModel
 import java.util.Locale
 
-/**
- * Alkaa Preference Section.
- *
- * @param modifier the decorator
- * @param onAboutClick function to be called when the about item is clicked
- * @param onTrackerClick function to be called when the tracker item is clicked
- */
 @Composable
 fun PreferenceSection(
     modifier: Modifier = Modifier,
@@ -191,7 +184,7 @@ private const val EasterEggUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 @Preview
 @Composable
 fun PreferencePreview() {
-    AlkaaTheme {
+    TodoListTheme {
         PreferenceSection(onAboutClick = {}, onTrackerClick = {})
     }
 }

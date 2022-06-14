@@ -7,19 +7,12 @@ import com.escodro.domain.repository.TaskRepository
 import mu.KLogging
 import java.util.Calendar
 
-/**
- * Use case to reschedule tasks scheduled in the future or missing repeating.
- */
 class RescheduleFutureAlarms(
     private val taskRepository: TaskRepository,
     private val alarmInteractor: AlarmInteractor,
     private val calendarProvider: CalendarProvider,
     private val scheduleNextAlarm: ScheduleNextAlarm
 ) {
-
-    /**
-     * Reschedule scheduled and misses repeating tasks.
-     */
     suspend operator fun invoke() {
         val uncompletedAlarms = taskRepository.findAllTasksWithDueDate().filterNot { it.completed }
         val futureAlarms = uncompletedAlarms.filter { isInFuture(it.dueDate) }

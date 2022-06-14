@@ -5,10 +5,6 @@ import android.app.TimePickerDialog
 import android.content.Context
 import java.util.Calendar
 
-/**
- * Custom dialog flow to show the [DatePickerDialog] and [TimePickerDialog] in the same
- * interaction flow.
- */
 class DateTimePickerDialog(context: Context, private val onDateChanged: (Calendar) -> Unit) {
 
     private val calendar = Calendar.getInstance()
@@ -34,9 +30,6 @@ class DateTimePickerDialog(context: Context, private val onDateChanged: (Calenda
         )
     }
 
-    /**
-     * Starts the date and time dialog picker flow, immediately displaying the dialog.
-     */
     fun show() {
         datePickerDialog.show()
     }

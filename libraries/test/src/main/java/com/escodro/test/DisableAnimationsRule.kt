@@ -6,9 +6,6 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
-/**
- * [TestRule] to disable the animations during the tests and enable again after finishing.
- */
 class DisableAnimationsRule : TestRule {
 
     private val uiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())

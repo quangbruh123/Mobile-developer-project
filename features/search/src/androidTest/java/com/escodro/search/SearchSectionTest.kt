@@ -5,7 +5,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.search.model.TaskSearchItem
 import com.escodro.search.presentation.SearchScaffold
 import com.escodro.search.presentation.SearchViewState
@@ -52,7 +52,7 @@ internal class SearchSectionTest {
 
     private fun loadTaskList(state: SearchViewState) {
         composeTestRule.setContent {
-            AlkaaTheme {
+            TodoListTheme {
                 SearchScaffold(
                     viewState = state,
                     onItemClick = {},

@@ -3,18 +3,7 @@ package com.escodro.task.mapper
 import com.escodro.domain.model.Task as DomainTask
 import com.escodro.task.model.Task as ViewTask
 
-/**
- * Maps Tasks between Domain and View.
- */
 internal class TaskMapper(private val alarmIntervalMapper: AlarmIntervalMapper) {
-
-    /**
-     * Maps Task from Domain to View.
-     *
-     * @param domainTask the Task to be converted.
-     *
-     * @return the converted Task
-     */
     fun toView(domainTask: DomainTask): ViewTask =
         ViewTask(
             id = domainTask.id,

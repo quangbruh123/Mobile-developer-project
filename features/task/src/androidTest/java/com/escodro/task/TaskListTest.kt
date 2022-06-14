@@ -7,7 +7,7 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
 import com.escodro.categoryapi.model.Category
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.task.model.Task
 import com.escodro.task.model.TaskWithCategory
 import com.escodro.task.presentation.list.CategoryStateHandler
@@ -72,7 +72,7 @@ internal class TaskListTest {
     @OptIn(ExperimentalMaterialApi::class)
     private fun loadTaskList(state: TaskListViewState) {
         composeTestRule.setContent {
-            AlkaaTheme {
+            TodoListTheme {
                 TaskListScaffold(
                     taskHandler = TaskStateHandler(state = state),
                     categoryHandler = CategoryStateHandler(),

@@ -28,14 +28,6 @@ import com.escodro.task.model.Task
 import com.escodro.task.model.TaskWithCategory
 import java.util.Calendar
 
-/**
- * Alkaa Task Item.
- *
- * @param modifier the decorator
- * @param task the task item to be rendered
- * @param onItemClick the action to be done when the item is clicked
- * @param onCheckedChange action to be called when the checked value changes
- */
 @Composable
 internal fun TaskItem(
     modifier: Modifier = Modifier,

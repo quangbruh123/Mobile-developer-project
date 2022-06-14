@@ -9,18 +9,7 @@ import com.escodro.task.model.AlarmInterval.YEARLY
 import com.escodro.domain.model.AlarmInterval as DomainInterval
 import com.escodro.task.model.AlarmInterval as ViewDataInterval
 
-/**
- * Maps Alarm Interval between Domain and View.
- */
 internal class AlarmIntervalMapper {
-
-    /**
-     * Maps Alarm Interval from View Data to Domain.
-     *
-     * @param alarmInterval the object to be converted
-     *
-     * @return the converted object
-     */
     fun toDomain(alarmInterval: ViewDataInterval): DomainInterval? =
         when (alarmInterval) {
             HOURLY -> DomainInterval.HOURLY
@@ -31,13 +20,6 @@ internal class AlarmIntervalMapper {
             NEVER -> null
         }
 
-    /**
-     * Maps Alarm Interval from Domain to View Data.
-     *
-     * @param alarmInterval the object to be converted
-     *
-     * @return the converted object
-     */
     fun toViewData(alarmInterval: DomainInterval?): ViewDataInterval =
         when (alarmInterval) {
             DomainInterval.HOURLY -> HOURLY

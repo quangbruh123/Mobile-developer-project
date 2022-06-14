@@ -15,9 +15,6 @@ import com.escodro.domain.interactor.NotificationInteractor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
-/**
- * Alarm dependency injection module.
- */
 val alarmModule = module {
 
     factory { TaskNotificationScheduler(androidContext()) }

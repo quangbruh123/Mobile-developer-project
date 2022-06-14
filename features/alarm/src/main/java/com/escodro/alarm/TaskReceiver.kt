@@ -15,9 +15,6 @@ import logcat.logcat
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-/**
- * [BroadcastReceiver] to be notified by the [android.app.AlarmManager].
- */
 internal class TaskReceiver : BroadcastReceiver(), KoinComponent {
 
     private val coroutineScope: CoroutineScope by inject()

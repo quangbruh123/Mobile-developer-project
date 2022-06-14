@@ -8,7 +8,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.platform.app.InstrumentationRegistry
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.preference.model.AppThemeOptions
 import com.escodro.preference.presentation.PreferenceContent
 import org.junit.Rule
@@ -42,7 +42,7 @@ internal class ThemePreferenceTest {
         composeTestRule.setContent {
             var theme by remember { mutableStateOf(AppThemeOptions.SYSTEM) }
 
-            AlkaaTheme {
+            TodoListTheme {
                 PreferenceContent(
                     onAboutClick = { },
                     onTrackerClick = { },

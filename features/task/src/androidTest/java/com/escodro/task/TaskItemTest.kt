@@ -3,7 +3,7 @@ package com.escodro.task
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.task.model.Task
 import com.escodro.task.model.TaskWithCategory
 import com.escodro.task.presentation.list.TaskItem
@@ -68,7 +68,7 @@ internal class TaskItemTest {
 
     private fun loadItemView(item: TaskWithCategory, onItemClicked: (Long) -> Unit) {
         composeTestRule.setContent {
-            AlkaaTheme {
+            TodoListTheme {
                 TaskItem(Modifier, item, onItemClicked, onCheckedChange = {})
             }
         }

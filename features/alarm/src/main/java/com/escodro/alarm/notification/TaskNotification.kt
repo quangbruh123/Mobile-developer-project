@@ -12,19 +12,10 @@ import com.escodro.core.extension.getNotificationManager
 import com.escodro.navigation.DestinationDeepLink
 import logcat.logcat
 
-/**
- * Handles the notification related to the Task reminders.
- */
 internal class TaskNotification(
     private val context: Context,
     private val channel: TaskNotificationChannel
 ) {
-
-    /**
-     * Shows the [TaskNotification] based on the given Task.
-     *
-     * @param task the task to be shown in the notification
-     */
     fun show(task: Task) {
         logcat { "Showing notification for '${task.title}'" }
         val builder = buildNotification(task)
@@ -32,22 +23,12 @@ internal class TaskNotification(
         context.getNotificationManager()?.notify(task.id.toInt(), builder.build())
     }
 
-    /**
-     * Shows the repeating [TaskNotification] based on the given Task.
-     *
-     * @param task the task to be shown in the notification
-     */
     fun showRepeating(task: Task) {
         logcat { "Showing repeating notification for '${task.title}'" }
         val builder = buildNotification(task)
         context.getNotificationManager()?.notify(task.id.toInt(), builder.build())
     }
 
-    /**
-     * Dismiss the [TaskNotification] based on the given id.
-     *
-     * @param notificationId the notification id to be dismissed
-     */
     fun dismiss(notificationId: Long) {
         logcat { "Dismissing notification id '$notificationId'" }
         context.getNotificationManager()?.cancel(notificationId.toInt())

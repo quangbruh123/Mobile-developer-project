@@ -43,16 +43,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.escodro.category.R
 import com.escodro.categoryapi.model.Category
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaDialog
 import com.escodro.designsystem.components.AlkaaInputTextField
 import com.escodro.designsystem.components.DialogArguments
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.getViewModel
 
-/**
- * Alkaa Category Bottom Sheet.
- */
 @Composable
 fun CategoryBottomSheet(category: Category?, onHideBottomSheet: () -> Unit) {
     val colorList = CategoryColors.values().map { it.value }
@@ -261,7 +258,7 @@ private fun CategoryColorItem(
 @Preview
 @Composable
 fun CategorySheetContentPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         Surface(modifier = Modifier.height(256.dp)) {
             val category = Category(id = 1L, name = "Movies", color = android.graphics.Color.YELLOW)
             val state = CategoryBottomSheetState(category)

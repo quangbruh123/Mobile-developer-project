@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.escodro.categoryapi.model.Category
 import com.escodro.categoryapi.presentation.CategoryState
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaLoadingContent
 import com.escodro.task.R
 import com.escodro.task.presentation.detail.main.CategoryId
@@ -158,7 +158,7 @@ fun CategorySelectionListPreview() {
     val category3 = Category(name = "Movies", color = android.graphics.Color.GREEN)
     val categories = listOf(category1, category2, category3)
 
-    AlkaaTheme {
+    TodoListTheme {
         Surface(color = MaterialTheme.colors.background) {
             CategorySelection(
                 state = CategoryState.Loaded(categories),
@@ -173,7 +173,7 @@ fun CategorySelectionListPreview() {
 @Preview
 @Composable
 fun CategorySelectionEmptyPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         Surface(color = MaterialTheme.colors.background) {
             CategorySelection(
                 state = CategoryState.Empty,

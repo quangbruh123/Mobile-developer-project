@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.escodro.categoryapi.presentation.CategoryListViewModel
 import com.escodro.categoryapi.presentation.CategoryState
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaInputTextField
 import com.escodro.task.R
 import com.escodro.task.presentation.category.CategorySelection
@@ -35,9 +35,6 @@ import com.escodro.task.presentation.detail.main.CategoryId
 import kotlinx.coroutines.delay
 import org.koin.androidx.compose.getViewModel
 
-/**
- * Alkaa Add Task Bottom Sheet.
- */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AddTaskBottomSheet(onHideBottomSheet: () -> Unit) {
@@ -103,7 +100,7 @@ private const val FocusDelay = 300L
 @Preview
 @Composable
 fun TaskListScaffoldError() {
-    AlkaaTheme {
+    TodoListTheme {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()

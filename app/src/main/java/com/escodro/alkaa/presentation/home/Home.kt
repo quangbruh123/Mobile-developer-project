@@ -39,7 +39,7 @@ import androidx.compose.ui.unit.dp
 import com.escodro.alkaa.model.HomeSection
 import com.escodro.category.presentation.bottomsheet.CategoryBottomSheet
 import com.escodro.category.presentation.list.CategoryListSection
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.preference.presentation.PreferenceSection
 import com.escodro.search.presentation.SearchSection
 import com.escodro.task.presentation.add.AddTaskBottomSheet
@@ -47,9 +47,6 @@ import com.escodro.task.presentation.list.TaskListSection
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-/**
- * Alkaa Home screen.
- */
 @Composable
 fun Home(onTaskClick: (Long) -> Unit, onAboutClick: () -> Unit, onTrackerClick: () -> Unit) {
     val (currentSection, setCurrentSection) = rememberSaveable { mutableStateOf(HomeSection.Tasks) }
@@ -64,7 +61,7 @@ fun Home(onTaskClick: (Long) -> Unit, onAboutClick: () -> Unit, onTrackerClick: 
     )
 
     Crossfade(currentSection) { homeSection ->
-        AlkaaHomeScaffold(
+        TodoListHomeScaffold(
             homeSection = homeSection,
             modifier = homeModifier,
             navItems = navItems,
@@ -75,7 +72,7 @@ fun Home(onTaskClick: (Long) -> Unit, onAboutClick: () -> Unit, onTrackerClick: 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun AlkaaHomeScaffold(
+private fun TodoListHomeScaffold(
     homeSection: HomeSection,
     modifier: Modifier,
     navItems: List<HomeSection>,
@@ -108,20 +105,20 @@ private fun AlkaaHomeScaffold(
         BackHandler { coroutineScope.launch { modalSheetState.hide() } }
     }
 
-    AlkaaBottomSheetLayout(
+    TodoListBottomSheetLayout(
         modalSheetState = modalSheetState,
         sheetContentState = sheetContentState,
         onHideBottomSheet = onHideBottomSheet
     ) {
         Scaffold(
             topBar = {
-                AlkaaTopBar(currentSection = homeSection)
+                TodoListTopBar(currentSection = homeSection)
             },
             content = {
-                AlkaaContent(homeSection, modifier, actions, onShowBottomSheet)
+                TodoListContent(homeSection, modifier, actions, onShowBottomSheet)
             },
             bottomBar = {
-                AlkaaBottomNav(
+                TodoListBottomNav(
                     currentSection = homeSection,
                     onSectionSelect = actions.setCurrentSection,
                     items = navItems
@@ -133,7 +130,7 @@ private fun AlkaaHomeScaffold(
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun AlkaaBottomSheetLayout(
+private fun TodoListBottomSheetLayout(
     modalSheetState: ModalBottomSheetState,
     sheetContentState: SheetContentState,
     onHideBottomSheet: () -> Unit,
@@ -169,7 +166,7 @@ private fun AlkaaBottomSheetLayout(
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun AlkaaContent(
+private fun TodoListContent(
     homeSection: HomeSection,
     modifier: Modifier,
     actions: HomeActions,
@@ -201,7 +198,7 @@ private fun AlkaaContent(
 }
 
 @Composable
-private fun AlkaaTopBar(currentSection: HomeSection) {
+private fun TodoListTopBar(currentSection: HomeSection) {
     TopAppBar(backgroundColor = MaterialTheme.colors.background, elevation = 0.dp) {
         Box(modifier = Modifier.fillMaxSize()) {
             Text(
@@ -215,7 +212,7 @@ private fun AlkaaTopBar(currentSection: HomeSection) {
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-private fun AlkaaBottomNav(
+private fun TodoListBottomNav(
     currentSection: HomeSection,
     onSectionSelect: (HomeSection) -> Unit,
     items: List<HomeSection>
@@ -230,7 +227,7 @@ private fun AlkaaBottomNav(
                     MaterialTheme.colors.onSecondary
                 }
             )
-            AlkaaBottomIcon(
+            TodoListBottomIcon(
                 section = section,
                 tint = colorState.value,
                 onSectionSelect = onSectionSelect,
@@ -241,7 +238,7 @@ private fun AlkaaBottomNav(
 }
 
 @Composable
-private fun AlkaaBottomIcon(
+private fun TodoListBottomIcon(
     section: HomeSection,
     tint: Color,
     onSectionSelect: (HomeSection) -> Unit,
@@ -259,18 +256,18 @@ private fun AlkaaBottomIcon(
 @Suppress("UndocumentedPublicFunction")
 @Preview(showBackground = true)
 @Composable
-fun AlkaaTopBarPreview() {
-    AlkaaTheme {
-        AlkaaTopBar(HomeSection.Tasks)
+fun TodoListTopBarPreview() {
+    TodoListTheme {
+        TodoListTopBar(HomeSection.Tasks)
     }
 }
 
 @Suppress("UndocumentedPublicFunction")
 @Preview(showBackground = true)
 @Composable
-fun AlkaaBottomNavPreview() {
-    AlkaaTheme {
-        AlkaaBottomNav(
+fun TodoListBottomNavPreview() {
+    TodoListTheme {
+        TodoListBottomNav(
             currentSection = HomeSection.Tasks,
             onSectionSelect = {},
             items = HomeSection.values().toList()

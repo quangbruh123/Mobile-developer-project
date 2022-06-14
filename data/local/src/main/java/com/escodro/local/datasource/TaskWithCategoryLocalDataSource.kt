@@ -7,9 +7,6 @@ import com.escodro.repository.model.TaskWithCategory
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-/**
- * Local implementation of [TaskWithCategoryDataSource].
- */
 internal class TaskWithCategoryLocalDataSource(
     daoProvider: DaoProvider,
     private val mapper: TaskWithCategoryMapper

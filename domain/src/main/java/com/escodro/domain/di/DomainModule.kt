@@ -49,12 +49,9 @@ import com.escodro.domain.usecase.tracker.LoadCompletedTasksByPeriod
 import com.escodro.domain.usecase.tracker.implementation.LoadCompletedTasksByPeriodImpl
 import org.koin.dsl.module
 
-/**
- * Domain dependency injection module.
- */
 val domainModule = module {
 
-    // Task Use Cases
+    // Task
     factory<AddTask> { AddTaskImpl(get(), get()) }
     factory { CompleteTask(get(), get(), get(), get()) }
     factory { UncompleteTask(get()) }
@@ -66,21 +63,21 @@ val domainModule = module {
     factory<UpdateTaskDescription> { UpdateTaskDescriptionImpl(get(), get()) }
     factory<UpdateTaskCategory> { UpdateTaskCategoryImpl(get(), get()) }
 
-    // Category Use Cases
+    // Category
     factory<DeleteCategory> { DeleteCategoryImpl(get()) }
     factory<LoadAllCategories> { LoadAllCategoriesImpl(get()) }
     factory { LoadCategory(get()) }
     factory<AddCategory> { AddCategoryImpl(get()) }
     factory<UpdateCategory> { UpdateCategoryImpl(get()) }
 
-    // Search Use Cases
+    // Search
     factory<SearchTasksByName> { SearchTasksByNameImpl(get()) }
 
-    // Task With Category Use Cases
+    // Task With Category
     factory { LoadCompletedTasks(get()) }
     factory<LoadUncompletedTasks> { LoadUncompletedTasksImpl(get()) }
 
-    // Alarm Use Cases
+    // Alarm
     factory<CancelAlarm> { CancelAlarmImpl(get(), get()) }
     factory { RescheduleFutureAlarms(get(), get(), get(), get()) }
     factory<ScheduleAlarm> { ScheduleAlarmImpl(get(), get()) }
@@ -89,13 +86,13 @@ val domainModule = module {
     factory { SnoozeAlarm(get(), get(), get()) }
     factory<UpdateTaskAsRepeating> { UpdateTaskAsRepeatingImpl(get()) }
 
-    // Tracker Use Cases
+    // Tracker
     factory<LoadCompletedTasksByPeriod> { LoadCompletedTasksByPeriodImpl(get()) }
 
-    // Preferences Use Cases
+    // Preferences
     factory { UpdateAppTheme(get()) }
     factory { LoadAppTheme(get()) }
 
-    // Providers
+    // Provider
     factory<CalendarProvider> { CalendarProviderImpl() }
 }

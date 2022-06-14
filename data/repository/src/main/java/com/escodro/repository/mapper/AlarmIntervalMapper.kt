@@ -8,18 +8,7 @@ import com.escodro.repository.model.AlarmInterval.YEARLY
 import com.escodro.domain.model.AlarmInterval as DomainInterval
 import com.escodro.repository.model.AlarmInterval as RepoInterval
 
-/**
- * Maps Alarm Interval between Repository and Domain.
- */
 internal class AlarmIntervalMapper {
-
-    /**
-     * Maps Alarm Interval from Repo to Domain.
-     *
-     * @param alarmInterval the object to be converted
-     *
-     * @return the converted object
-     */
     fun toDomain(alarmInterval: RepoInterval): DomainInterval =
         when (alarmInterval) {
             HOURLY -> DomainInterval.HOURLY
@@ -29,13 +18,6 @@ internal class AlarmIntervalMapper {
             YEARLY -> DomainInterval.YEARLY
         }
 
-    /**
-     * Maps Alarm Interval from Domain to Repo.
-     *
-     * @param alarmInterval the object to be converted
-     *
-     * @return the converted object
-     */
     fun toRepo(alarmInterval: DomainInterval): RepoInterval =
         when (alarmInterval) {
             DomainInterval.HOURLY -> HOURLY

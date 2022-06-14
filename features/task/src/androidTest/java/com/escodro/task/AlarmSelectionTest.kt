@@ -12,7 +12,7 @@ import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ActivityScenario
 import androidx.test.filters.SdkSuppress
 import androidx.test.platform.app.InstrumentationRegistry
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.task.espresso.setDateTime
 import com.escodro.task.model.AlarmInterval
 import com.escodro.task.presentation.detail.alarm.AlarmSelection
@@ -157,7 +157,7 @@ internal class AlarmSelectionTest {
     private fun loadAlarmSelection(hasPermission: Boolean = true) {
         scenario.onActivity { activity ->
             activity.setContent {
-                AlkaaTheme {
+                TodoListTheme {
                     AlarmSelection(
                         calendar = null,
                         interval = AlarmInterval.NEVER,
@@ -177,7 +177,7 @@ internal class AlarmSelectionTest {
     ) {
         scenario.onActivity { activity ->
             activity.setContent {
-                AlkaaTheme {
+                TodoListTheme {
                     AlarmSelection(
                         calendar = calendar,
                         interval = alarmInterval,

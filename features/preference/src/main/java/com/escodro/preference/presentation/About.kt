@@ -33,16 +33,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.escodro.core.extension.openUrl
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.blue700
 import com.escodro.designsystem.components.AlkaaToolbar
 import com.escodro.designsystem.lightGreen700
 import com.escodro.preference.R
 import java.util.Locale
 
-/**
- * Alkaa about screen.
- */
 @Composable
 fun About(onUpPress: () -> Unit) {
     Scaffold(
@@ -65,60 +62,11 @@ private fun AboutContent() {
     }
 }
 
-@Composable
-private fun ContentHeader() {
-    val infiniteTransition = rememberInfiniteTransition()
-    val color by infiniteTransition.animateColor(
-        initialValue = blue700,
-        targetValue = lightGreen700,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 10_000, easing = LinearEasing),
-            repeatMode = RepeatMode.Reverse
-        )
-    )
-
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .background(color = color)
-    ) {
-        val appName = stringResource(id = R.string.app_name).lowercase(Locale.getDefault())
-        Text(
-            text = appName,
-            style = MaterialTheme.typography.h1.copy(color = MaterialTheme.colors.surface)
-        )
-    }
-}
-
-@Composable
-private fun ContentCallToAction() {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 16.dp)
-    ) {
-        val context = LocalContext.current
-        Button(onClick = { context.openUrl(ProjectUrl) }) {
-            Icon(
-                imageVector = Icons.Default.Person,
-                contentDescription = stringResource(id = R.string.about_cd_github)
-            )
-            Spacer(modifier = Modifier.width(12.dp))
-            Text(text = stringResource(id = R.string.about_button_project))
-        }
-    }
-}
-
-private const val ProjectUrl = "https://github.com/igorescodro/alkaa"
-
 @Suppress("UndocumentedPublicFunction")
 @Preview
 @Composable
 fun AboutPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         About(onUpPress = { })
     }
 }

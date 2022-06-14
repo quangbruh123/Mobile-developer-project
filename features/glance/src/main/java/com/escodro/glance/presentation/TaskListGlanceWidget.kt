@@ -151,13 +151,6 @@ internal class TaskListGlanceWidget : GlanceAppWidget(), KoinComponent {
     private fun getTaskIntent(taskId: Long): Intent =
         Intent(Intent.ACTION_VIEW, DestinationDeepLink.getTaskDetailUri(taskId))
 
-    /**
-     * Loads the data and requests the GlanceAppWidget to be updated. This is needed since it is not
-     * possible to use traditional compose methods to keep updating an App Widget.
-     *
-     * For more information about this behavior, please access:
-     * https://issuetracker.google.com/issues/211022821
-     */
     fun loadData() {
         coroutineScope.launch {
             taskList = viewModel.loadTaskList().first()

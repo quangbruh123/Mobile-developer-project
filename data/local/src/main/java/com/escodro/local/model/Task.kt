@@ -7,20 +7,6 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.util.Calendar
 
-/**
- * Entity to represent a task.
- *
- * @property id unique task id
- * @property completed indicates if the task is completed
- * @property title the task title
- * @property description the task description
- * @property categoryId the associated category id
- * @property dueDate the due date to the task be notified
- * @property creationDate the date of creation of the task
- * @property completedDate the date of completion of the task
- * @property isRepeating indicates if the task is repeating
- * @property alarmInterval the interval between the repeating
- */
 @Entity(
     foreignKeys = [
         ForeignKey(

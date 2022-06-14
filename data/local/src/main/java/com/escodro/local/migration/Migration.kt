@@ -3,9 +3,6 @@ package com.escodro.local.migration
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-/**
- * SQLite Database migration from V1 to V2. This migration includes new fields on Task table.
- */
 val MIGRATION_1_2 = object : Migration(1, 2) {
     override fun migrate(database: SupportSQLiteDatabase) {
         database.execSQL("ALTER TABLE Task ADD COLUMN task_creation_date INTEGER")
@@ -13,9 +10,6 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
     }
 }
 
-/**
- * SQLite Database migration from V2 to V3. This migration includes new fields on Task table.
- */
 @Suppress("MagicNumber")
 val MIGRATION_2_3 = object : Migration(2, 3) {
     override fun migrate(database: SupportSQLiteDatabase) {
@@ -24,9 +18,6 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
     }
 }
 
-/**
- * SQLite Database migration from V3 to V4. This migration removes the null fields from Category.
- */
 @Suppress("MagicNumber")
 val MIGRATION_3_4 = object : Migration(3, 4) {
     override fun migrate(database: SupportSQLiteDatabase) {

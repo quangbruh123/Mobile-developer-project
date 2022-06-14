@@ -7,16 +7,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.util.Calendar
 
-/**
- * Use case to get completed tasks in Tracker format for the last month from the database.
- */
 internal class LoadCompletedTasksByPeriodImpl(
     private val repository: TaskWithCategoryRepository
 ) : LoadCompletedTasksByPeriod {
 
-    /**
-     * Gets completed tasks in Tracker format for the last month.
-     */
     override operator fun invoke(): Flow<List<TaskWithCategory>> =
         repository.findAllTasksWithCategory()
             .map { list ->

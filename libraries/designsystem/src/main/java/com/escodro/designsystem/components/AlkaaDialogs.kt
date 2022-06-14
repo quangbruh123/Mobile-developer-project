@@ -6,7 +6,7 @@ import androidx.compose.material.OutlinedButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 
 /**
  * Default dialog with confirm and dismiss button.
@@ -61,7 +61,7 @@ data class DialogArguments(
 @Preview
 @Composable
 fun DialogPreview() {
-    AlkaaTheme {
+    TodoListTheme {
         val arguments = DialogArguments(
             title = "Something regrettable",
             text = "Are you sure that do you want to do something regrettable?",

@@ -25,7 +25,7 @@ import com.escodro.alarmapi.AlarmPermission
 import com.escodro.categoryapi.model.Category
 import com.escodro.categoryapi.presentation.CategoryListViewModel
 import com.escodro.categoryapi.presentation.CategoryState
-import com.escodro.designsystem.AlkaaTheme
+import com.escodro.designsystem.TodoListTheme
 import com.escodro.designsystem.components.AlkaaLoadingContent
 import com.escodro.designsystem.components.AlkaaToolbar
 import com.escodro.designsystem.components.DefaultIconTextContent
@@ -212,7 +212,7 @@ fun TaskDetailPreview() {
 
     val categories = listOf(category1, category2, category3)
 
-    AlkaaTheme {
+    TodoListTheme {
         TaskDetailContent(
             task = task,
             categoryViewState = CategoryState.Loaded(categories),

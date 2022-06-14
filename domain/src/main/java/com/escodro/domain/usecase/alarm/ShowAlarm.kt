@@ -4,20 +4,11 @@ import com.escodro.domain.interactor.NotificationInteractor
 import com.escodro.domain.repository.TaskRepository
 import mu.KLogging
 
-/**
- * Use case to show an alarm.
- */
 class ShowAlarm(
     private val taskRepository: TaskRepository,
     private val notificationInteractor: NotificationInteractor,
     private val scheduleNextAlarm: ScheduleNextAlarm
 ) {
-
-    /**
-     * Shows the alarm.
-     *
-     * @param taskId the alarm id to be shown
-     */
     suspend operator fun invoke(taskId: Long) {
         val task = taskRepository.findTaskById(taskId) ?: return
 

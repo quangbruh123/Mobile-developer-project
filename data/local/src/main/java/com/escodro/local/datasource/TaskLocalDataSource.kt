@@ -5,9 +5,6 @@ import com.escodro.local.provider.DaoProvider
 import com.escodro.repository.datasource.TaskDataSource
 import com.escodro.repository.model.Task
 
-/**
- * Local implementation of [TaskDataSource].
- */
 internal class TaskLocalDataSource(daoProvider: DaoProvider, private val taskMapper: TaskMapper) :
     TaskDataSource {
 
