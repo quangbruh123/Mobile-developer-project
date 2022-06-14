@@ -116,7 +116,7 @@ private fun TrackerItem(onTrackerClick: () -> Unit) {
 @Composable
 @Suppress("MagicNumber")
 private fun VersionItem() {
-    val title = stringResource(id = R.string.preference_title_version)
+
     val context = LocalContext.current
     val version = context.getVersionName()
     var numberOfClicks by remember { mutableStateOf(0) }
@@ -135,7 +135,7 @@ private fun VersionItem() {
             }
     }
 
-    PreferenceItem(title = title, description = version, onItemClick = onClick)
+
 }
 
 @Composable

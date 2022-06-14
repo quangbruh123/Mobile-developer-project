@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- AppTopBar -->
-    <string name="home_title_tasks">Tasks</string>
-    <string name="home_title_search">Search</string>
-    <string name="home_title_categories">Categories</string>
-    <string name="home_title_settings">More</string>
+    <string name="home_title_tasks" translatable="false">Tasks</string>
+    <string name="home_title_search" translatable="false">Search</string>
+    <string name="home_title_categories" translatable="false">Categories</string>
+    <string name="home_title_settings" translatable="false">More</string>
 
     <!-- Suppress `UnusedResources` due to some bug on Dynamic Features tags -->
     <string name="dynamic_feature_title_tracker" translatable="false" tools:ignore="UnusedResources">Task Tracker</string>
